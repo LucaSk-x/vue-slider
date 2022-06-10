@@ -1,4 +1,4 @@
-const slides = [
+const slide = [
     {
         image: 'img/01.jpg',
         title: 'Svezia',
@@ -26,27 +26,82 @@ const slides = [
     }
 ];
 
-console.log(slides);
 
 let app = new Vue (
     {
         el: '#app',
 
         data: {
-            list: slides,
-            source: slides[4].image,
+            data: slide,
+            indice: 0,
+            isActive1: true,
+            isActive2: false,
+            isActive3: false,
+            isActive4: false,
+            isActive5: false,
+
         },
 
         methods: {
-            increment: function (i) {
-                slides[i]
-                i++
+            increment: function () {
+                this.indice++
+                if (this.indice > 4) {
+                    this.indice--
+                }
             },
 
-            decrement: function (i) {
-                slides[i] = this.source 
-                i--
-            }
+            decrement: function () {
+                this.indice--
+                if (this.indice < 0) {
+                    this.indice++
+                }
+            },
+
+            immagine1: function() {
+                this.indice = 0
+                this.isActive1 = true
+                this.isActive2 = false
+                this.isActive3 = false
+                this.isActive4 = false
+                this.isActive5 = false
+            },
+
+            immagine2: function() {
+                this.indice = 1
+                this.isActive1 = false
+                this.isActive2 = true
+                this.isActive3 = false
+                this.isActive4 = false
+                this.isActive5 = false
+            },
+
+            immagine3: function() {
+                this.indice = 2
+                this.isActive1 = false
+                this.isActive2 = false
+                this.isActive3 = true
+                this.isActive4 = false
+                this.isActive5 = false
+            },
+
+            immagine4: function() {
+                this.indice = 3
+                this.isActive1 = false
+                this.isActive2 = false
+                this.isActive3 = false
+                this.isActive4 = true
+                this.isActive5 = false
+            },
+
+            immagine5: function() {
+                this.indice = 4
+                this.isActive1 = false
+                this.isActive2 = false
+                this.isActive3 = false
+                this.isActive4 = false
+                this.isActive5 = true
+            },
         },
     }
 )
+
